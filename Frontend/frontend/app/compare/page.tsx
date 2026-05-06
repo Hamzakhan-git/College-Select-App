@@ -9,7 +9,7 @@ export default function ComparePage() {
   const [comparisonData, setComparisonData] = useState([]);
 
   useEffect(() => {
-    fetch('https://college-select-app.vercel.app/api/colleges')
+    fetch('https://college-select-app-88g1.vercel.app/api/colleges')
       .then(res => res.json())
       .then(data => setColleges(data));
   }, []);
@@ -26,7 +26,7 @@ export default function ComparePage() {
   const runComparison = async () => {
     if (selectedIds.length < 2) return alert("Please select at least 2 colleges to compare.");
     
-    const res = await fetch('https://college-select-app.vercel.app/api/colleges/compare', {
+    const res = await fetch('https://college-select-app-88g1.vercel.app/api/colleges/compare', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ ids: selectedIds })

@@ -12,7 +12,7 @@ export default function PredictorPage() {
     e.preventDefault();
     if (!formData.rank) return alert("Please enter your rank!");
 
-    const res = await fetch('https://college-select-app.vercel.app/api/predict', {
+    const res = await fetch('https://college-select-app-88g1.vercel.app/api/predict', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)

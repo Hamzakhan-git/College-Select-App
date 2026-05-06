@@ -10,7 +10,7 @@ export default function QAPage() {
 
   // Fetch questions on load
   const fetchQuestions = async () => {
-    const res = await fetch('https://college-select-app.vercel.app/api/questions');
+    const res = await fetch('https://college-select-app-88g1.vercel.app/api/questions');
     const data = await res.json();
     setQuestions(data);
   };
@@ -24,7 +24,7 @@ export default function QAPage() {
     e.preventDefault();
     if (!newQuestion.trim()) return;
 
-    await fetch('https://college-select-app.vercel.app/api/questions', {
+    await fetch('https://college-select-app-88g1.vercel.app/api/questions', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ question: newQuestion })
@@ -39,7 +39,7 @@ export default function QAPage() {
     const answerText = answerInputs[id];
     if (!answerText || !answerText.trim()) return;
 
-    await fetch(`https://college-select-app.vercel.app/api/questions/${id}/answer`, {
+    await fetch(`https://college-select-app-88g1.vercel.app/api/questions/${id}/answer`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ answer: answerText })

@@ -27,7 +27,7 @@ export default function AddCollegePage() {
       courses: formData.courses.split(',').map(c => c.trim())
     };
 
-    const res = await fetch('https://college-select-app.vercel.app/api/colleges', {
+    const res = await fetch('https://college-select-app-88g1.vercel.app/api/colleges', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)

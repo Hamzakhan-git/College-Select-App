@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 // Fetch single college data from your Express backend
 async function getCollege(id: string) {
-  const res = await fetch(`https://college-select-app.vercel.app/api/colleges/${id}`, { cache: 'no-store' });
+  const res = await fetch(`https://college-select-app-88g1.vercel.app/api/colleges/${id}`, { cache: 'no-store' });
   if (!res.ok) throw new Error('Failed to fetch college');
   return res.json();
 }

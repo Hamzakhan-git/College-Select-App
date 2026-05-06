@@ -13,7 +13,7 @@ export default function Home() {
   const [locationFilter, setLocationFilter] = useState('');
 
   useEffect(() => {
-    fetch('https://college-select-app.vercel.app/api/colleges')
+    fetch('https://college-select-app-88g1.vercel.app/api/colleges')
       .then(res => res.json())
       .then(data => setColleges(data));
     

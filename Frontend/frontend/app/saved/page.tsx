@@ -12,7 +12,7 @@ export default function SavedCollegesPage() {
     if (user) {
       setUsername(user);
       // Fetch only the colleges saved by this specific user
-      fetch(`https://college-select-app.vercel.app/api/saved/${user}`)
+      fetch(`https://college-select-app-88g1.vercel.app/api/saved/${user}`)
         .then(res => res.json())
         .then(data => setSavedColleges(data))
         .catch(err => console.error("Error fetching saved items:", err));
