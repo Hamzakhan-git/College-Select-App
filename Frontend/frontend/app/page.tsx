@@ -13,7 +13,7 @@ export default function Home() {
   const [locationFilter, setLocationFilter] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/colleges')
+    fetch('https://college-select-app.vercel.app/api/colleges')
       .then(res => res.json())
       .then(data => setColleges(data));
     
@@ -36,7 +36,7 @@ export default function Home() {
   const handleSave = async (collegeId: number) => {
     if (!isLoggedIn) return alert("Please login first to save colleges!");
     
-    const res = await fetch('http://localhost:5000/api/save', {
+    const res = await fetch('https://college-select-app.vercel.app/api/save', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, college_id: collegeId })
