@@ -4,6 +4,8 @@ const express = require('express');
 const { Pool } = require('pg');
 const cors = require('cors');
 
+const app = express();
+
 // 1. The main CORS configuration
 app.use(cors({
   origin: ['http://localhost:3000', 'https://college-select-app-7y36.vercel.app'], // Note: No trailing slashes here!
