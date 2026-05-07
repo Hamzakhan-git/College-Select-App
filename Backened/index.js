@@ -1,15 +1,19 @@
 // index.js
 require('dotenv').config();
 const express = require('express');
-const cors = require('cors');
 const { Pool } = require('pg');
+const cors = require('cors');
 
-const app = express();
+// 1. The main CORS configuration
 app.use(cors({
-  origin: ['https://college-select-app-7y36.vercel.app/', 'http://localhost:3000'],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  origin: ['http://localhost:3000', 'https://college-select-app-7y36.vercel.app'], // Note: No trailing slashes here!
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // OPTIONS is required for preflight
+  allowedHeaders: ['Content-Type', 'Authorization'], // Required so the browser can send JSON
   credentials: true
 }));
+
+// 2. The Preflight Catch-All (THIS IS THE MAGIC FIX)
+app.options('*', cors());
 app.use(express.json());
 
 // Connect to your Supabase PostgreSQL database
