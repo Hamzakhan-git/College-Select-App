@@ -76,15 +76,17 @@ export default function Home() {
         </div>
 
         {/* Header and Other Buttons */}
-        <div className="flex justify-between items-center mb-10 border-b border-slate-700 pb-6">
-            <h1 className="text-4xl font-extrabold text-white">College Discovery</h1>
-            <div className="flex gap-4">
-                <Link href="/qa" className="bg-amber-600 px-5 py-3 rounded-xl font-bold">💬 Q&A</Link>
-                <Link href="/predict" className="bg-blue-600 px-5 py-3 rounded-xl font-bold">🔮 Predictor</Link>
-                <Link href="/add" className="bg-emerald-600 px-5 py-3 rounded-xl font-bold">+ Add</Link>
-                <Link href="/compare" className="bg-purple-600 px-5 py-3 rounded-xl font-bold">⚖️ Compare</Link>
-            </div>
-        </div>
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-5 mb-10 border-b border-slate-700 pb-6">
+    <h1 className="text-3xl md:text-4xl font-extrabold text-white">College Discovery</h1>
+    
+    {/* flex-wrap ensures buttons wrap to a new line on very small screens instead of getting cut off */}
+    <div className="flex flex-wrap gap-3 md:gap-4">
+        <Link href="/qa" className="bg-amber-600 px-4 py-2 md:px-5 md:py-3 rounded-xl font-bold text-sm md:text-base">💬 Q&A</Link>
+        <Link href="/predict" className="bg-blue-600 px-4 py-2 md:px-5 md:py-3 rounded-xl font-bold text-sm md:text-base">🔮 Predictor</Link>
+        <Link href="/add" className="bg-emerald-600 px-4 py-2 md:px-5 md:py-3 rounded-xl font-bold text-sm md:text-base">+ Add</Link>
+        <Link href="/compare" className="bg-purple-600 px-4 py-2 md:px-5 md:py-3 rounded-xl font-bold text-sm md:text-base">⚖️ Compare</Link>
+    </div>
+</div>
 
         {/* Search Bar */}
         <input 
