@@ -1,4 +1,3 @@
-// index.js
 require('dotenv').config();
 const express = require('express');
 const { Pool } = require('pg');
@@ -14,19 +13,16 @@ const corsOptions = {
   credentials: true
 };
 
+// 2. Apply CORS globally (This intercepts standard AND preflight requests safely)
 app.use(cors(corsOptions));
-
-// 2. The Preflight Catch-All (Vercel-Safe Wildcard)
-app.options('/(.*)', cors(corsOptions)); 
 
 // 3. JSON Parser
 app.use(express.json());
 
-// Connect to your Supabase PostgreSQL database
+// 4. Connect to your Supabase PostgreSQL database
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL, 
 });
-
 
 // 1. GET ALL COLLEGES (For Listing & Search Page)
 app.get('/api/colleges', async (req, res) => {
