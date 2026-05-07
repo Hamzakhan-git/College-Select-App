@@ -15,7 +15,7 @@ app.use(cors({
 }));
 
 // 2. The Preflight Catch-All (THIS IS THE MAGIC FIX)
-app.options('*', cors());
+app.options('/*', cors());
 app.use(express.json());
 
 // Connect to your Supabase PostgreSQL database
