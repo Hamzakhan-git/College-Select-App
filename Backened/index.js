@@ -7,21 +7,26 @@ const cors = require('cors');
 const app = express();
 
 // 1. The main CORS configuration
-app.use(cors({
-  origin: ['http://localhost:3000', 'https://college-select-app-7y36.vercel.app'], // Note: No trailing slashes here!
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // OPTIONS is required for preflight
-  allowedHeaders: ['Content-Type', 'Authorization'], // Required so the browser can send JSON
+const corsOptions = {
+  origin: ['http://localhost:3000', 'https://college-select-app-7y36.vercel.app'], 
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
+  allowedHeaders: ['Content-Type', 'Authorization'], 
   credentials: true
-}));
+};
 
-// 2. The Preflight Catch-All (THIS IS THE MAGIC FIX)
-app.options('/*', cors());
+app.use(cors(corsOptions));
+
+// 2. The Preflight Catch-All (Vercel-Safe Wildcard)
+app.options('/(.*)', cors(corsOptions)); 
+
+// 3. JSON Parser
 app.use(express.json());
 
 // Connect to your Supabase PostgreSQL database
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL, 
 });
+
 
 // 1. GET ALL COLLEGES (For Listing & Search Page)
 app.get('/api/colleges', async (req, res) => {
